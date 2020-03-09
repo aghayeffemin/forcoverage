@@ -45,3 +45,4 @@ obj
 .vs
 
 coveragedFiles/*
+!coveragedFiles/.gitkeep 
