@@ -26,7 +26,7 @@ for (const entry of css_coverage) {
 
   filename = entry.url.split('/').pop();
 
-  fs.writeFile('./'+filename, final_css_bytes, error => {
+  fs.writeFile('./coveragedFiles/'+filename, final_css_bytes, error => {
     if (error) {
       console.log('Error creating file:', error);
     } else {
