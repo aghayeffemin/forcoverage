@@ -1,12 +1,17 @@
-const puppeteer = require('puppeteer');
+const puppeteer = require('puppeteer-core');
 const util = require('util');
 const fs    = require("fs");
 
 (async () => {
- const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({
+    headless: false,
+    ignoreDefaultArgs: ['--disable-extensions'],
+    args: ['--no-sandbox'],
+    executablePath: "C:/Users/EminAg/Downloads/Win_x64_750058_chrome-win/chrome-win/chrome.exe"
+  });
  const page = await browser.newPage();
  await page.coverage.startCSSCoverage();
- await page.goto('http://127.0.0.1:8081/buildings.html'); // Change this
+ await page.goto('http://e-emdk.gov.az:30095/'); // Change this
  const css_coverage = await page.coverage.stopCSSCoverage();
  console.log(util.inspect(css_coverage, { showHidden: false, depth: null }));
  await browser.close();
